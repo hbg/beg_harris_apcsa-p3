@@ -35,7 +35,10 @@ public class TriangleFive
 		for (int i = 0; i<amount; i++) {
 			for (int x = 0; x<amount-i; x++) {
 				for (int y = amount-x-1; y>=0; y--) {
-					output+=(char) (letter+(x));
+					if ((int)letter+x < (91))
+						output+=(char) (letter+(x));
+					else
+						output+= (char) (x+64);
 				}
 				output+=" ";
 				
