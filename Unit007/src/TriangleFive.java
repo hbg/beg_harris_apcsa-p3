@@ -33,12 +33,16 @@ public class TriangleFive
 	{
 		String output="";
 		for (int i = 0; i<amount; i++) {
+			
 			for (int x = 0; x<amount-i; x++) {
 				for (int y = amount-x-1; y>=0; y--) {
-					if ((int)letter+x < (91))
+					if ((int)letter+x < (91)) {
 						output+=(char) (letter+(x));
-					else
-						output+= (char) (x+64);
+					}
+					else {
+			
+						output+= (char) (letter+x-26);
+					}
 				}
 				output+=" ";
 				

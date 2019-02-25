@@ -12,7 +12,7 @@ public class TriangleFiveRunner
 	   out.println(t.toString());
 	   t = new TriangleFive('A',5);
 	   out.println(t.toString());
-	   t = new TriangleFive('Z',8);
+	   t = new TriangleFive('X',8);
 	   out.println(t);
 	}
 }
