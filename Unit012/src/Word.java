@@ -14,7 +14,7 @@ public class Word implements Comparable<Word>
 	}
 	public int compareTo( Word rhs )
 	{		
-		return word.length() > rhs.word.length() ? 1 : -1;
+		return word.length() > rhs.word.length() ? word.compareTo(rhs.word) : -1;
 	}
 	public int getSize() {
 		return word.length();
