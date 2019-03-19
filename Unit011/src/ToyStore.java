@@ -21,7 +21,13 @@ public class ToyStore
 	{
 		Scanner sc = new Scanner(toys);
 		while (sc.hasNext()) {
-			toyList.add(new Toy(sc.next()));
+			String nm = sc.next();
+			int index = -1;
+			for (int i = 0; i<toyList.size(); i++) {
+				if(toyList.get(i).getName().equals(nm)) index = i;
+			}
+			if (index == -1) toyList.add(new Toy(sc.next()));
+			else toyList.get(index).setCount(toyList.get(index).getCount()+1);
 		}
 	}
   
@@ -51,14 +57,26 @@ public class ToyStore
   
   	public void sortToysByCount()
   	{
-  		
+  		ArrayList<Toy> newToyList = new ArrayList<Toy>();
+  		newToyList.add(toyList.get(0));
+  		for (int i = 0; i<toyList.size(); i++) {
+  			int max = 0;
+  			int x = 0;
+  			for (Toy t : toyList) {
+  				if (t.getCount() > toyList.get(max).getCount()) max = x;
+  				x++;
+  			}
+  			newToyList.add(0, toyList.get(x));
+  			toyList.get(x).setCount(-1);
+  		}
+  		toyList = newToyList;
   	}  
   	  
 	public String toString()
 	{
 		String output="[";
 		for (Toy t : toyList) {
-			output += String.format("%s, ", t.getName());
+			output += String.format("%s: %s, ", t.getName(), t.getCount());
 		}
 		output+="]\n" + String.format("max == %s", getMostFrequentToy());
 		return output;
