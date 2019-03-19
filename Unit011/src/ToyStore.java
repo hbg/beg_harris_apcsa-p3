@@ -26,7 +26,7 @@ public class ToyStore
 			for (int i = 0; i<toyList.size(); i++) {
 				if(toyList.get(i).getName().equals(nm)) index = i;
 			}
-			if (index == -1) toyList.add(new Toy(sc.next()));
+			if (index == -1) toyList.add(new Toy(nm));
 			else toyList.get(index).setCount(toyList.get(index).getCount()+1);
 		}
 	}
@@ -58,17 +58,9 @@ public class ToyStore
   	public void sortToysByCount()
   	{
   		ArrayList<Toy> newToyList = new ArrayList<Toy>();
-  		newToyList.add(toyList.get(0));
-  		for (int i = 0; i<toyList.size(); i++) {
-  			int max = 0;
-  			int x = 0;
-  			for (Toy t : toyList) {
-  				if (t.getCount() > toyList.get(max).getCount()) max = x;
-  				x++;
-  			}
-  			newToyList.add(0, toyList.get(x));
-  			toyList.get(x).setCount(-1);
-  		}
+  		for (int j = 5000; j>=0; j--)
+	  		for (int i = 0; i<toyList.size(); i++)
+	  			if (toyList.get(i).getCount() == j) newToyList.add(toyList.get(i));
   		toyList = newToyList;
   	}  
   	  
