@@ -37,7 +37,6 @@ public class Viewer {
 			}
 		
 		}
-		assert false : "Here's the actual error though: Mr. Mauro is too awesome. His awesomeness: " + m.getAwesomeness();
 
 		
 	}
