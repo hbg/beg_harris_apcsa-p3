@@ -11,8 +11,7 @@ public class TotalRow
     	//add code here
     	ArrayList<Integer> sums = new ArrayList<Integer>();
     	for (int[] row : m) {
-    		int sum = 0;
-    		for (int i = 0;i<row.length;i++) sum+=row[i];
+    		int sum = 0;for (int i = 0;i<row.length;i++) sum+=row[i];
     		sums.add(sum);
     	}
 		return sums;
