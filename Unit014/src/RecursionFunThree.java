@@ -20,6 +20,10 @@ public class RecursionFunThree
 	 */
 	public static int luckyThrees( long number )
 	{
-		return 0;
+		int count = 0;
+		if (number == 0)
+			return 0;
+		if (number % 10 == 3 && number / 10 != 0) count++;
+		return count + luckyThrees(number / 10);
 	}
 }
