@@ -10,11 +10,9 @@ public class Grid
 	public Grid(int rows, int cols, String[] vals)
 	{
 		grid = new String[rows][cols];
-		for (int i = 0; i<rows; i++) {
-			for (int j = 0; j<cols; j++) {
+		for (int i = 0; i<rows; i++)
+			for (int j = 0; j<cols; j++)
 				grid[i][j] = vals[(int)(Math.random()*vals.length)];
-			}
-		}
 	}
 
 	//find out which of the vals occurs the most
@@ -30,8 +28,7 @@ public class Grid
 	private int countVals( String val )
 	{
 		int count = 0;
-		for (String[] rows : grid)
-			for (String r : rows)
+		for (String[] rows : grid) for (String r : rows)
 				if (r.equals(val)) count++;
 		return count;
 	}
