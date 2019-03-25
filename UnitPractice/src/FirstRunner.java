@@ -5,6 +5,8 @@
 
 import static java.lang.System.*;
 
+import java.util.Arrays;
+
 public class FirstRunner
 {
 	public static void main( String args[] )
@@ -21,7 +23,7 @@ public class FirstRunner
 		System.out.println(  s.go(  "##wowgira77##eplus")    );
 		System.out.println(  s.go(  "catsandaplusdogsaplus###")    );
 		System.out.println(  s.go(  "7")    );
-
+		System.out.println(  Arrays.toString(s.sort(new int[]{2, 3, 7, 9, 11, 10, 1, 2}))    );
 	}
 }
 
