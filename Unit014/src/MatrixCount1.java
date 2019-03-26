@@ -22,4 +22,11 @@ public class MatrixCount1
     			if (m[i][j] == val) count++;
 		return count;
     }
+    
+    public String toString() {
+    	String s = "";
+    	for (int[] m1 : m)
+    		s+=Arrays.toString(m1) + "\n";
+    	return s;
+    }
 }

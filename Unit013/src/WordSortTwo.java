@@ -18,12 +18,29 @@ public class WordSortTwo
 
 	public void sort()
 	{
-		Arrays.sort(this.wordRay);
+		boolean sorted = false;
+		while (!sorted) {
+			sorted = true;
+			for (int i = 0; i<wordRay.length; i++) {
+				for (int j = 0; j<wordRay.length; j++) {
+					if (wordRay[j].compareTo(wordRay[i]) > 0 && j < i) {
+						String temp = wordRay[j];
+						wordRay[j] = wordRay[i];
+						wordRay[i] = temp;
+					}
+				}
+			}
+			for (int i = 0; i<wordRay.length-1; i++)
+				if (wordRay[i].compareTo(wordRay[i+1]) > 0) sorted = false;
+		}
 	}
 
 	public String toString()
 	{
 		sort();
-		return Arrays.toString(wordRay)+"\n\n";
+		String out = "[";
+		for (String w : wordRay)
+			out+=w+", ";
+		return out + "]";
 	}
 }
