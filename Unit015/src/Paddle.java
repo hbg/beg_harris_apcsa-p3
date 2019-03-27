@@ -23,8 +23,12 @@ public class Paddle extends Block
 	   super(x, y);
 	   this.speed = speed;
    }
+   public Paddle(int x, int y, int wid, int ht) {
+	   this(x, y, 10, wid, ht);
+   }
    public Paddle(int x, int y, int speed, int width, int height) {
-	   super(x, y, width, height, Color.RED);
+	   super(x, y, width, height, Color.BLACK);
+	   this.speed=speed;
    }
    public Paddle(int x, int y, int width, int height, Color c) {
 	   super(x, y, width, height, c);

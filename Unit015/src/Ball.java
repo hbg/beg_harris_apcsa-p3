@@ -16,6 +16,10 @@ public class Ball extends Block
 		xSpeed = 3;
 		ySpeed = 1;
 	}
+	public Ball(int x, int y)
+	{
+		super(x, y);
+	}
 
 	//add the other Ball constructors
 	public Ball(int x, int y, int xSpeed, int ySpeed) {
@@ -27,6 +31,9 @@ public class Ball extends Block
 		super(x, y, wid, ht);
 		this.xSpeed = xSpeed;
 		this.ySpeed = ySpeed;
+	}
+	public Ball(int x, int y, int wid, int ht, Color c) {
+		this(x, y, wid, ht, 0, 0, c);
 	}
 	public Ball(int x, int y, int wid, int ht, int xSpeed, int ySpeed, Color c) {
 		super(x, y, wid, ht, c);

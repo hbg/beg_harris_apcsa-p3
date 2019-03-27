@@ -12,7 +12,7 @@ public class Block implements Locatable
 	private int width;
 	private int height;
 
-	private Color color;
+	private Color color = Color.black;
 
 	public Block()
 	{
@@ -78,8 +78,8 @@ public class Block implements Locatable
 
    public void draw(Graphics window, Color col)
    {
-
-
+	   window.setColor(col);
+	   window.fillRect(getX(), getY(), getWidth(), getHeight());
    }
    
 	public boolean equals(Object obj)

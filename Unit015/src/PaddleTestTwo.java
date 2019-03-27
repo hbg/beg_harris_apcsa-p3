@@ -25,16 +25,15 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 		
 
 		//instantiate a Ball
-		Ball b = new Ball(50, 50, 5, 5);
+		ball = new Ball(50, 50, 50, 50, 10, 10, Color.RED);
 		
 		
 		//instantiate a left Paddle
-		leftPaddle = new Paddle(10, 10);
-		
+		leftPaddle = new Paddle(10, 10, 20, 200);
 		
 		
 		//instantiate a right Paddle
-		rightPaddle = new Paddle(350, 10);
+		rightPaddle = new Paddle(750, 10, 20, 200);
 		
 		
 
@@ -59,8 +58,9 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 	{
 		ball.moveAndDraw(window);
 		leftPaddle.draw(window);
+		rightPaddle.draw(window);
 
-		if(!(ball.getX()>=10 && ball.getX()<=550))
+		if(!(ball.getX()>=50 && ball.getX()<=770))
 		{
 			ball.setXSpeed(-ball.getXSpeed());
 		}
