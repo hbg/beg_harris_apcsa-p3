@@ -13,7 +13,11 @@ public class FancyWordsRunner
 {
 	public static void main( String args[] ) throws IOException
 	{
-		Scanner f = new Scanner("fancywords.dat");
-		System.out.println();
+		Scanner f = new Scanner(new File("C:\\Users\\legos\\Desktop\\Work\\workspace\\Unit013Quiz\\src\\fancywords2.dat"));
+		int size = f.nextInt();
+		String[] words = new String[size];
+		for (int i = 0; i<size; i++)
+			words[i] = f.next();
+		System.out.println(new FancyWords(f.next()));
 	}
 }

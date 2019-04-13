@@ -24,7 +24,7 @@ public class TheGame extends JFrame
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
+	
 	public static void main( String args[] )
 	{
 		TheGame run = new TheGame();

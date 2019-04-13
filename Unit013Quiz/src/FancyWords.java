@@ -15,10 +15,25 @@ public class FancyWords
 	{
 		wordRay = sentence.split(" ");
 	}
+	public int getMax() {
+		int max = 0;
+		for (String s : wordRay)
+			if (s.length() > max) max = s.length();
+		return max;
+	}
 
 	public String toString()
 	{
 		String output="";
+		for (int i = 0; i<wordRay.length; i++) {
+			for (int j = 0; j<getMax(); j++) {
+				if (j >= wordRay[i].length()) {
+					output+=" ";
+				}
+				else output+= String.valueOf(wordRay[i].charAt(wordRay[i].length()-j-1));
+			}
+			output+="\n";
+		}
 		
 		return output+"\n\n";
 	}
