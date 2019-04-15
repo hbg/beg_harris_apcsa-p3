@@ -20,7 +20,7 @@ public class Tester extends JFrame
 		//uncomment when you are ready to test the Ball
 		//getContentPane().add(new BallTestTwo());
 
-		PaddleTestTwo padTest = new PaddleTestTwo();
+		Pong padTest = new Pong();
 		((Component)padTest).setFocusable(true);
 		getContentPane().add(padTest);
 
