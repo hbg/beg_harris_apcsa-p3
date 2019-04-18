@@ -147,13 +147,15 @@ public class PictureTester
     testMirrorHorizontal();
     testMirrorHorizontalBotToTop();
     */
-    testMirrorDiagonal();
-    testMirrorTemple();
-    testMirrorArms();
-    testMirrorGull();
-    //testMirrorDiagonal();
+	while (true) {
+	  testMirrorDiagonal();
+	  testMirrorTemple();
+	  testMirrorArms();
+	  testMirrorGull();
+	}
+	//testMirrorDiagonal();
     //testCollage();
-    testCopy();
+    //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
@@ -162,7 +164,7 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
-    Picture p = new Picture();
-    p.myCollage();
+    //Picture p = new Picture();
+    //p.myCollage();
   }
 }
