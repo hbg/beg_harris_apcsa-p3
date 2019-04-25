@@ -285,14 +285,14 @@ public class Picture extends SimplePicture
 	    Pixel[][] pixels = this.getPixels2D();
 	    
 	    // loop through the rows
-	    for (int row = 210; row < 320; row++)
+	    for (int row = 320; row >= 210; row--)
 	    {
 	      // loop from 13 to just before the mirror point
-	      for (int col = 240; col < 340; col++)
+	      for (int col = 340; col > 240; col--)
 	      {
 	    	count++;
 	        leftPixel = pixels[row][col];      
-	        rightPixel = pixels[row][col+100];
+	        rightPixel = pixels[row][340-(col) + 100];
 	        rightPixel.setColor(leftPixel.getColor());
 	      }
 	    }
