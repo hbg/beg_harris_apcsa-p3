@@ -69,7 +69,7 @@ public class Ball extends Block
       setX(getX()+xSpeed);
 		//setY
       setY(getY() + ySpeed);
-      super.draw(window, Color.RED);
+      super.draw(window, new Color(((int)(Math.random()*255)),((int)(Math.random()*255)),((int)(Math.random()*255))));
 		//draw the ball at its new location
    }
    

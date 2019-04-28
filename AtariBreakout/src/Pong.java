@@ -26,25 +26,39 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	private int i;
 	private int leftScore, rightScore;
 
-
+	public void createNBars(int n, int spacing, int y) {
+		int numSpaces = n - 1;
+		int tileSize = (800 - (spacing * numSpaces))/n;
+		for (int i = 0; i<=800; i+=tileSize+spacing) {
+			bars.add(new Bar(i, y, tileSize, 20, Color.BLACK));
+		}
+				
+	}
+	public void createNBarsVertical(int n, int spacing, int x) {
+		int numSpaces = n - 1;
+		int tileSize = (600 - (spacing * numSpaces))/n;
+		for (int i = 0; i<=600; i+=tileSize+spacing) {
+			bars.add(new Bar(x, i, 20, tileSize, Color.BLACK));
+		}
+		
+	}
 	public Pong()
 	{
 		//set up all variables related to the game
 		//instantiate a Ball
-				ball = new Ball(50, 50, 10, 10, 5, 5, Color.RED);
+				ball = new Ball(400, 300, 10, 10, 3, 3, Color.RED);
 				
-				atariPaddle = new Paddle(360, 500, 40, 40);
+				atariPaddle = new Paddle(360, 400, 40, 40);
 
 		bars = new ArrayList<Bar>();
-		for (int i = 0, count = 0; i < 20; i++) {
-			for (int j = 0; j<2; j++, count++) {
-			
-				int y = 50 + 50*j;
-				bars.add(new Bar(10 + i*32, y, 30, 20, Color.BLACK));
-			
-			}
-		}
-
+		createNBars(30, 5, 0);
+		createNBars(30, 5, 520);
+		createNBarsVertical(30, 5, 0);
+		createNBarsVertical(30, 5, 750);
+		createNBars(30, 5, 25);
+		createNBars(30, 5, 495);
+		createNBarsVertical(30, 5, 25);
+		createNBarsVertical(30, 5, 715);
 		keys = new boolean[5];
 
     
@@ -77,16 +91,21 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//create a graphics reference to the back ground image
 		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
+		//graphToBack.clearRect(50, 50, 700, 500);
+		if (i == 0) {
+			atariPaddle.draw(graphToBack);
+		}
+		i++;
 		for (Bar b : bars)
 			b.draw(graphToBack);
 		for (int i = 0; i<bars.size(); i++) {
 			Bar b = bars.get(i);
 			if (ball.getX() >= b.getX() && ball.getX() <= b.getX() + b.getWidth() && ball.getY() >= b.getY() && ball.getY() <= b.getY() + b.getHeight()) {
-				System.out.println("Hit");
-				graphToBack.setColor(Color.WHITE);
 				bars.remove(i);
 				ball.setXSpeed(-ball.getXSpeed());
 				ball.setYSpeed(-ball.getYSpeed());
+				graphToBack.setColor(Color.WHITE);
+
 				graphToBack.fillRect(b.getX(), b.getY(), b.getWidth(), b.getHeight());
 			}
 		}
@@ -94,24 +113,24 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		if(keys[0] == true)
 		{
 			//move left paddle up and draw it on the window
-			atariPaddle.moveDownAndDraw(graphToBack);
+			/*if (atariPaddle.getY() - atariPaddle.getSpeed() >= 400)*/ atariPaddle.moveDownAndDraw(graphToBack);
 
 		}
 		if(keys[1] == true)
 		{
 			//move left paddle down and draw it on the window
-			atariPaddle.moveLeftAndDraw(graphToBack);
+			/*if (atariPaddle.getX() - atariPaddle.getSpeed() >= 0)*/ atariPaddle.moveLeftAndDraw(graphToBack);
 
 
 		}
 		if(keys[2] == true)
 		{
-			atariPaddle.moveUpAndDraw(graphToBack);
+			/*if (atariPaddle.getY() + atariPaddle.getSpeed() <= 500)*/ atariPaddle.moveUpAndDraw(graphToBack);
 
 		}
 		if(keys[3] == true)
 		{
-			atariPaddle.moveRightAndDraw(graphToBack);
+			/*if (atariPaddle.getX() + atariPaddle.getSpeed() <= 740)*/ atariPaddle.moveRightAndDraw(graphToBack);
 
 		}
 		
@@ -120,26 +139,27 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		if (ball.getY() >= 600) {
 			reset();
 		}
-		if(!(ball.getX()>=0 && ball.getX()<=750))
+		
+		if(!(ball.getX()>=0 && ball.getX()<=800))
 		{
-			ball.setXSpeed(-ball.getXSpeed());
+			
 			ball.setYSpeed(-ball.getYSpeed());
 
 		}
 		if (ball.getX() >= atariPaddle.getX() && ball.getX() <= atariPaddle.getX() + atariPaddle.getWidth() && ball.getY() <= atariPaddle.getY()+atariPaddle.getHeight() && ball.getY() >= atariPaddle.getY())
-		{	ball.setXSpeed(-ball.getXSpeed());
+		{	
 			ball.setYSpeed(-ball.getYSpeed());
-			leftScore++;
-		}
+			atariPaddle.draw(graphToBack);
+
+		} // Hit condition
 		if(!(ball.getY()>=0))
 		{
 			System.out.println(ball.getYSpeed()+ " " + ball.getXSpeed());
 			ball.setYSpeed(Math.abs(ball.getYSpeed()));
 		}
-		if(ball.getX()<=0 && ball.getX()>=750)
+		if(ball.getX()-ball.getXSpeed() <= 0 || ball.getX() + ball.getXSpeed() >= 800)
 		{
-			ball.setXSpeed(-ball.getXSpeed());
-
+			reset();
 		}
 		
 		/**

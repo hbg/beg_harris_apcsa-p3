@@ -24,7 +24,7 @@ public class Paddle extends Block
 	   this.speed = speed;
    }
    public Paddle(int x, int y, int wid, int ht) {
-	   this(x, y, 10, wid, ht);
+	   this(x, y, 5, wid, ht);
    }
    public Paddle(int x, int y, int speed, int width, int height) {
 	   super(x, y, width, height, Color.BLACK);
