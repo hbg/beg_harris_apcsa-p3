@@ -40,7 +40,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		for (int i = 0; i<=600; i+=tileSize+spacing) {
 			bars.add(new Bar(x, i, 20, tileSize, Color.BLACK));
 		}
-		
 	}
 	public Pong()
 	{
@@ -146,7 +145,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			ball.setYSpeed(-ball.getYSpeed());
 
 		}
-		if (ball.getX() >= atariPaddle.getX() && ball.getX() <= atariPaddle.getX() + atariPaddle.getWidth() && ball.getY() <= atariPaddle.getY()+atariPaddle.getHeight() && ball.getY() >= atariPaddle.getY())
+		if (ball.getX() + ball.getXSpeed() >= atariPaddle.getX() && ball.getX() + ball.getXSpeed() <= atariPaddle.getX() + atariPaddle.getWidth() && ball.getY() + ball.getYSpeed()<= atariPaddle.getY()+atariPaddle.getHeight() && ball.getY()+ball.getYSpeed() >= atariPaddle.getY())
 		{	
 			ball.setYSpeed(-ball.getYSpeed());
 			atariPaddle.draw(graphToBack);
