@@ -37,10 +37,10 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	{
 		setBackground(Color.black);
 		shots = new Bullets();
-		ship = new Ship(100,100,50,50,5);
+		ship = new Ship(350,450,50,50,5);
 		alienOne = new Alien(250,50,50,50,5);
 		alienTwo = new Alien(400,50,50,50,5);
-		horde = new AlienHorde(15);
+		horde = new AlienHorde(10);
 		keys = new boolean[5];
 
 		//instantiate other instance variables
@@ -96,7 +96,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			ship.move("DOWN");
 		}
 		if (keys[4] == true && rateLimit < 1) {
-			rateLimit+=20;
+			rateLimit+=10;
 			shots.add(new Ammo(ship.getX()+ship.getWidth()/2  , ship.getY(), 2));
 		}
 		else {
@@ -179,7 +179,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
    	{
    		while(true)
    		{
-   		   Thread.currentThread().sleep(5);
+   		   Thread.currentThread().sleep(10);
             repaint();
          }
       }catch(Exception e)

@@ -69,7 +69,7 @@ public class Alien extends MovingThing
 		case "UP":
 			super.setY(Math.max(0, this.getY() - this.getSpeed())); break;
 		case "DOWN":
-			super.setY(Math.min(this.getY() + this.getSpeed(), 500)); break;
+			super.setY(Math.min(this.getY() + 1, 500)); break;
 		}
 	}
 

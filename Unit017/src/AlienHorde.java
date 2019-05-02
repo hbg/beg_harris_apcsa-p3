@@ -13,7 +13,7 @@ import java.util.List;
 public class AlienHorde
 {
 	private List<Alien> aliens;
-
+	private boolean max = false;
 	public AlienHorde(int size)
 	{
 		aliens = new ArrayList<Alien>(size);
@@ -43,15 +43,19 @@ public class AlienHorde
 	{		
 		for (Alien alien : aliens)
 			alien.move("DOWN");
-		if (aliens.get(0).getX()<=50) {
-			//System.out.println("RIGHT");
-			for (Alien alien : aliens)
-				alien.move("RIGHT");
-		}
-		else {
-			//System.out.println("STRANGE");
-			for (int i=(aliens.size()-1); i>=0;i--)
-				aliens.get(i).move("LEFT");
+		if (aliens.size()>0){
+			if (aliens.get(aliens.size()-1).getX()<=700 && max) {
+				//System.out.println("RIGHT");
+				for (Alien alien : aliens)
+					alien.move("RIGHT");
+			}
+			else {
+				max = false;
+				//System.out.println("LEFT");
+					for (Alien alien : aliens)
+						alien.move("LEFT");
+			}
+			if (aliens.get(0).getX() <= 0) max = true;
 		}
 	}
 
